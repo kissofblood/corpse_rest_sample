@@ -42,7 +42,7 @@ public class ImageController {
 	@Autowired
 	private ImageService imageService;
 
-	@RequestMapping(method = RequestMethod.GET)	
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Image> getAll() {
 		return imageService.getAll();

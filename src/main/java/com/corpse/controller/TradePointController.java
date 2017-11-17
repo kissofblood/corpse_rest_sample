@@ -3,6 +3,7 @@ package com.corpse.controller;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -30,7 +31,13 @@ public class TradePointController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<TradePoint> getAll(Principal principal, @RequestParam Map<String, String> params) {
-		return tradePointService.getAll(params, Common.getUser(principal));
+		long startTime = System.nanoTime();
+		List<TradePoint> t = tradePointService.getAll(params, Common.getUser(principal));
+		long endTime = System.nanoTime();
+		
+		System.out.println("FUCK " +
+			TimeUnit.NANOSECONDS.toSeconds(endTime - startTime));
+		return t;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

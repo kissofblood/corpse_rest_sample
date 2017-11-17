@@ -9,6 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -123,7 +124,14 @@ public class TradePointService {
 		return query.list();
 	}
 
+	@Cacheable(value = "tradepoints", key = "#user.username")
 	public List<TradePoint> getAll(Map<String, String> params, User user) {
+	     try {
+             long time = 5000L;
+             Thread.sleep(time);
+         } catch (InterruptedException e) {
+             throw new IllegalStateException(e);
+        }
 		return get(-1, params, user);
 	}
 

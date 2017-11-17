@@ -19,7 +19,7 @@ import com.corpse.util.Common;
 
 public abstract class ControllerDocument<T extends Document> {
 
-	protected ServiceDocument<T> service; 
+	protected ServiceDocument<T> service;
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
@@ -33,19 +33,19 @@ public abstract class ControllerDocument<T extends Document> {
 		return service.getFilterByKey(id, Common.getUser(principal));
 	}
 
-	@RequestMapping(value = "/insert/object", method = RequestMethod.POST)	
+	@RequestMapping(value = "/insert/object", method = RequestMethod.POST)
 	@ResponseBody
 	public List<ResponseUDIDocument> insertObjects(@RequestBody List<T> docs) {
 		return service.insertObjects(docs);
 	}
 
-	@RequestMapping(value = "/update/object", method = RequestMethod.POST)	
+	@RequestMapping(value = "/update/object", method = RequestMethod.POST)
 	@ResponseBody
 	public List<ResponseUDI<Long>> updateObjects(@RequestBody List<T> docs) {
 		return service.updateObjects(docs);
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseUDI<Long> deleteByKeys(@RequestBody List<Long> ids) {
 		return service.deleteByKeys(ids);

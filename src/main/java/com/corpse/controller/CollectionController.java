@@ -24,7 +24,7 @@ public class CollectionController {
 	@Autowired
 	private CollectionService collectionService;
 
-	@RequestMapping(method = RequestMethod.GET)	
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Collection> getAll() {
 		return collectionService.getAll();
@@ -38,7 +38,7 @@ public class CollectionController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseUDI<Long> updateByKey(@RequestParam("id") long id, 
+	public ResponseUDI<Long> updateByKey(@RequestParam("id") long id,
 			@RequestParam("name") String name) {
 		Collection collection = new Collection();
 		collection.setId(id);

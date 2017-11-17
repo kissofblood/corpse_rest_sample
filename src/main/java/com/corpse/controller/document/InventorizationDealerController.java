@@ -13,7 +13,7 @@ import com.corpse.util.Common;
 @RequestMapping("/api/inventorizationdealer")
 @Secured(Common.ROLE_OWNER)
 public class InventorizationDealerController extends ControllerDocument<InventorizationDealer> {
-	
+
 	@Autowired
 	public void setInventorizationDealerService(InventorizationDealerService inventorizationDealerService) {
 		service = inventorizationDealerService;

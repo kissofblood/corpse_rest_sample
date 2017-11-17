@@ -27,7 +27,7 @@ public class ContractorController {
 	@Autowired
 	private ContractorService contractorService;
 
-	@RequestMapping(method = RequestMethod.GET)	
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Contractor> getAll(Principal principal) {
 		return contractorService.getAll(Common.getUser(principal));

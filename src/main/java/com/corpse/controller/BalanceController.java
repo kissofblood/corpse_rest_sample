@@ -30,7 +30,7 @@ public class BalanceController {
 		return balanceService.getAllHistory(params);
 	}
 
-	@RequestMapping(method = RequestMethod.GET)	
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<StorageBalance> getBalance(@RequestParam Map<String, String> params) {
 		return balanceService.getAllBalance(params);

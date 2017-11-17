@@ -31,40 +31,19 @@ import com.corpse.util.Common;
 @Secured(Common.ROLE_OWNER)
 public class DataController {
 
-	@Autowired
-	private TradePointService tradePointService;
+	@Autowired private TradePointService tradePointService;
+	@Autowired private ContractorService contractorService;
+	@Autowired private ItemService itemService;
+	@Autowired private CollectionService collectionService;
+	@Autowired private TradePointTypeService tradePointTypeService;
+	@Autowired private DealerService dealerService;
+	@Autowired private StorageService storageService;
+	@Autowired private SettingService settingService;
+	@Autowired private ChecklistService checklistService;
+	@Autowired private InventorizationService inventorizationService;
+	@Autowired private OrderService orderService;
 
-	@Autowired
-	private ContractorService contractorService;
-
-	@Autowired
-	private ItemService itemService;
-
-	@Autowired
-	private CollectionService collectionService;
-
-	@Autowired
-	private TradePointTypeService tradePointTypeService;
-	
-	@Autowired
-	private DealerService dealerService;
-	
-	@Autowired
-	private StorageService storageService;
-
-	@Autowired
-	private SettingService settingService;
-
-	@Autowired
-	private ChecklistService checklistService;
-
-	@Autowired
-	private InventorizationService inventorizationService;
-
-	@Autowired
-	private OrderService orderService;
-	
-	@RequestMapping(method = RequestMethod.GET)	
+	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public Data getAll(Principal principal) {
 		Map<String, String> empty = new HashMap<>();
